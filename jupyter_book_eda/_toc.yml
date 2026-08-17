@@ -1,0 +1,6 @@
+# Tabla de contenido del libro (formato Jupyter Book)
+# 'root: intro' hace que la página principal sea intro.html (como en el ejemplo).
+format: jb-book
+root: intro
+chapters:
+  - file: eda_bancario
