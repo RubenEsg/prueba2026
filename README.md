@@ -1,47 +1,33 @@
-# Publicar el EDA como Jupyter Book en GitHub Pages
+# EDA — Fuga y valor del cliente en una *fintech* colombiana
 
-Este proyecto genera un sitio web (como `https://<usuario>.github.io/<repo>/intro.html`)
-a partir de tu notebook **ya ejecutado**. No re-ejecuta el notebook: usa las salidas y
-gráficas guardadas dentro del `.ipynb` (por eso no necesita los CSV en el repositorio).
+**Universidad del Norte · Machine Learning · Entrega 1**
+Martínez Pulido, Valerie · Basto Martínez, Abrahan · Esguerra Fernández, Rubén
 
-## Archivos
-- `intro.md` — página principal del libro (será `intro.html`).
-- `eda_bancario.ipynb` — tu notebook ejecutado (reemplázalo cuando lo actualices, mismo nombre).
-- `_toc.yml` — tabla de contenido (define que `intro` es la portada).
-- `_config.yml` — configuración (título, autor, `execute_notebooks: off`).
-- `requirements.txt` — dependencia para compilar (`jupyter-book<2`).
-- `.github/workflows/deploy.yml` — compila y publica automáticamente en cada `push`.
+📖 **Sitio publicado:** https://rubenesg.github.io/Machine_learning/
 
-## Pasos (opción recomendada: automática con GitHub Actions)
+Análisis exploratorio y auditoría de calidad de datos sobre el conjunto público
+[COFINFAD](https://data.mendeley.com/datasets/mhb4zn3258/1) (48.723 clientes, 54 variables
+y 3.159.157 transacciones, 2023).
 
-1. Copia **todos** estos archivos a la carpeta de tu repositorio (respeta la carpeta
-   `.github/workflows/`).
-2. En `_config.yml` cambia `repository.url` por la URL de tu repo (y el autor/título si quieres).
-3. Sube los cambios:
-   ```bash
-   git add .
-   git commit -m "Publicar EDA como Jupyter Book"
-   git push origin main
-   ```
-4. En GitHub: **Settings → Pages → Build and deployment → Source = "GitHub Actions"**.
-5. Ve a la pestaña **Actions**; cuando el workflow termine (marca verde), tu sitio queda en:
-   `https://<TU_USUARIO>.github.io/<TU_REPO>/intro.html`
+## Contenido del repositorio
 
-> Cada vez que hagas `push` con el notebook actualizado, el sitio se reconstruye solo.
+| Archivo | Descripción |
+|---|---|
+| `eda_bancario.ipynb` | Notebook ejecutado con todo el análisis (18 figuras, 12 tablas) |
+| `docs/` | Sitio web ya compilado (Jupyter Book). Es lo que publica GitHub Pages |
+| `intro.md`, `_toc.yml`, `_config.yml` | Fuentes del libro, por si se quiere recompilar |
+| `requirements.txt` | Dependencia para recompilar (`jupyter-book<2`) |
 
-## Opción alternativa (manual, desde tu PC)
+## Cómo se publica
+
+GitHub Pages sirve la carpeta `docs/` de la rama `main`
+(**Settings → Pages → Source: Deploy from a branch → main → /docs**).
+
+## Recompilar el sitio (solo si se modifica el notebook)
 
 ```bash
-pip install "jupyter-book<2" ghp-import
+pip install "jupyter-book<2"
 jupyter-book build .
-ghp-import -n -p -f _build/html
+rm -rf docs && cp -r _build/html docs && touch docs/.nojekyll
+git add -A && git commit -m "Actualizar sitio" && git push
 ```
-Luego en **Settings → Pages → Source = "Deploy from a branch" → rama `gh-pages` → `/(root)`**.
-El sitio queda en la misma URL.
-
-## Notas
-- El repositorio debe ser **público** para GitHub Pages gratuito.
-- Si tu rama por defecto es `master` en vez de `main`, cambia `branches: [main]` en el
-  workflow (o renombra la rama).
-- Para compilar localmente y verlo antes de publicar: `jupyter-book build .` y abre
-  `_build/html/intro.html`.

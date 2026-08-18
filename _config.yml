@@ -1,7 +1,7 @@
 # Configuración del Jupyter Book
 # Ajusta el título, el autor y la URL de tu repositorio.
-title: "EDA Bancario — Fuga y Valor del Cliente"
-author: "Ruben Esguerra"
+title: "EDA — Fuga y valor del cliente en una fintech colombiana"
+author: "Martínez Pulido · Basto Martínez · Esguerra Fernández"
 logo: ""
 
 # IMPORTANTE: usa las salidas ya guardadas en el .ipynb (NO re-ejecuta el notebook).
@@ -14,7 +14,7 @@ only_build_toc_files: true
 
 # Enlace al repositorio (cambia <TU_USUARIO> y <TU_REPO>)
 repository:
-  url: https://github.com/<TU_USUARIO>/<TU_REPO>
+  url: https://github.com/RubenEsg/Machine_learning
   branch: main
 
 html:
