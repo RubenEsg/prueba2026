@@ -37,6 +37,7 @@
     <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=c7d363f2" />
   
   <!-- So that users can add custom icons -->
   <script defer src="_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
@@ -64,7 +65,6 @@
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Análisis exploratorio de datos — Fuga y valor del cliente" href="intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -98,8 +98,8 @@
   <input type="search"
          class="form-control"
          name="q"
-         placeholder="Search this book..."
-         aria-label="Search this book..."
+         placeholder="Search..."
+         aria-label="Search..."
          autocomplete="off"
          autocorrect="off"
          autocapitalize="off"
@@ -152,10 +152,6 @@
   
 
   
-    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
-      <span class="fa-solid fa-outdent"></span>
-    </button>
-  
 </div>
 
     </header>
@@ -165,6 +161,8 @@
     <div class="bd-container__inner bd-page-width">
       
       
+      
+        
       
       <dialog id="pst-primary-sidebar-modal"></dialog>
       <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
@@ -185,7 +183,7 @@
     
   
 
-<a class="navbar-brand logo" href="intro.html">
+<a class="navbar-brand logo" href="#">
   
   
   
@@ -205,17 +203,6 @@
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
-        <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1">
-                <a class="reference internal" href="intro.html">
-                    Análisis exploratorio de datos — Fuga y valor del cliente
-                </a>
-            </li>
-        </ul>
-        <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Caracterización y auditoría de calidad de datos para predecir la fuga (<em>churn</em>) y el valor del cliente (<em>CLV</em>) en una <em>fintech</em> colombiana</a></li>
-</ul>
-
     </div>
 </nav></div>
     </div>
@@ -260,21 +247,6 @@
         <div class="header-article-item">
 
 <div class="article-header-buttons">
-
-
-<a href="https://github.com/RubenEsg/Machine_learning" target="_blank"
-   class="btn btn-sm btn-source-repository-button"
-   title="Source repository"
-   data-bs-placement="bottom" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-
-</a>
-
 
 
 
@@ -424,10 +396,9 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tabla-corregida-dataset-depurado-para-el-modelado">9.4 Tabla corregida — dataset depurado para el modelado</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resumen-ejecutivo-y-proximos-pasos">10. Resumen ejecutivo y próximos pasos</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resumen-ejecutivo">10. Resumen ejecutivo</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resumen-de-correctitud">Resumen de correctitud</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hallazgos-principales">Hallazgos principales</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proximos-pasos-para-el-modelado">Próximos pasos para el modelado</a></li>
 </ul>
 </li>
 </ul>
@@ -2906,8 +2877,8 @@ Clientes sin transaccion : 0
 <p><strong>Conclusión.</strong> El conjunto <code class="docutils literal notranslate"><span class="pre">df_modelo</span></code> queda depurado: sin las columnas transaccionales duplicadas y con las banderas <code class="docutils literal notranslate"><span class="pre">has_*</span></code> que preservan la información de los faltantes estructurales. Los pasos siguientes en la fase de modelado son binarizar <code class="docutils literal notranslate"><span class="pre">churn</span></code> (o plantear la regresión del CLV en escala logarítmica), transformar los montos con log(1+x), codificar las variables categóricas y realizar la partición estratificada con semilla fija.</p>
 </section>
 </section>
-<section id="resumen-ejecutivo-y-proximos-pasos">
-<h2>10. Resumen ejecutivo y próximos pasos<a class="headerlink" href="#resumen-ejecutivo-y-proximos-pasos" title="Link to this heading">#</a></h2>
+<section id="resumen-ejecutivo">
+<h2>10. Resumen ejecutivo<a class="headerlink" href="#resumen-ejecutivo" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">num</span> <span class="o">=</span> <span class="n">col_num</span>
@@ -2997,18 +2968,7 @@ deben resolverse antes de pasar a la fase de modelado:</p>
 <p><strong>Columnas de transacciones duplicadas/revueltas.</strong> <code class="docutils literal notranslate"><span class="pre">avg_tx_value</span></code>≡<code class="docutils literal notranslate"><span class="pre">average_transaction_value</span></code> y <code class="docutils literal notranslate"><span class="pre">total_tx_volume</span></code>≡<code class="docutils literal notranslate"><span class="pre">total_transaction_volume</span></code> son la misma variable <em>revuelta</em> (idéntica distribución, 0 % de coincidencia por fila). <code class="docutils literal notranslate"><span class="pre">tx_count</span></code>/<code class="docutils literal notranslate"><span class="pre">total_tx_volume</span></code> <strong>sí</strong> cuadran con las transacciones reales; sus gemelas no. Conservar una de cada grupo y descartar la duplicada.</p>
 <p><strong>Faltantes estructurales.</strong> Los NaN de <code class="docutils literal notranslate"><span class="pre">complaint_topics</span></code>, <code class="docutils literal notranslate"><span class="pre">feature_requests</span></code> y <code class="docutils literal notranslate"><span class="pre">credit_utilization_ratio</span></code> significan “no aplica”, no “dato perdido”. Convertir en banderas <code class="docutils literal notranslate"><span class="pre">has_*</span></code> e imputar con criterio (0 solo donde aplica).</p>
 <p><strong>Asimetría monetaria.</strong> <code class="docutils literal notranslate"><span class="pre">customer_lifetime_value</span></code>, <code class="docutils literal notranslate"><span class="pre">total_tx_volume</span></code> y <code class="docutils literal notranslate"><span class="pre">avg_tx_value</span></code> están muy sesgadas → <strong>transformación logarítmica</strong> antes de modelar. Hay clientes con CLV = 0 por revisar.</p>
-<p><strong>Señal coherente.</strong> Satisfacción, NPS y <em>engagement</em> se relacionan con menos churn; CLV crece con productos y con volumen transaccionado, en línea con <code class="docutils literal notranslate"><span class="pre">clv_segment</span></code>.</p>
-</section>
-<section id="proximos-pasos-para-el-modelado">
-<h3>Próximos pasos para el modelado<a class="headerlink" href="#proximos-pasos-para-el-modelado" title="Link to this heading">#</a></h3>
-<ol class="arabic simple">
-<li><p><strong>Definir el objetivo:</strong> clasificación de fuga (binarizar <code class="docutils literal notranslate"><span class="pre">churn</span></code>) o regresión de CLV (en log).</p></li>
-<li><p><strong>Auditar la etiqueta</strong> <code class="docutils literal notranslate"><span class="pre">churn</span></code> por la posible fuga; decidir si <code class="docutils literal notranslate"><span class="pre">active_products</span></code> entra al modelo.</p></li>
-<li><p><strong>Consolidar</strong> las columnas de transacciones (quedarse con las que cuadran con la realidad) y eliminar duplicados/multicolinealidad.</p></li>
-<li><p><strong>Faltantes:</strong> banderas <code class="docutils literal notranslate"><span class="pre">has_*</span></code> + imputación con criterio; <strong>monetarias:</strong> log-transformar.</p></li>
-<li><p><strong>Codificar</strong> categóricas (one-hot / ordinal), agrupar <code class="docutils literal notranslate"><span class="pre">occupation</span></code>/<code class="docutils literal notranslate"><span class="pre">location</span></code> de alta cardinalidad.</p></li>
-<li><p><strong>Partición</strong> train/test estratificada + línea base (regresión logística / lineal) antes de modelos complejos, cuidando la <strong>fuga de información</strong>.</p></li>
-</ol>
+<p><strong>Señal coherente.</strong> Satisfacción, NPS y <em>engagement</em> se relacionan con menos churn. El CLV crece de forma ordenada con <code class="docutils literal notranslate"><span class="pre">clv_segment</span></code> y con el volumen transaccionado (ρ de Spearman = 0,98), pero <strong>no</strong> con el número de productos activos.</p>
 </section>
 </section>
 </section>
@@ -3043,93 +3003,12 @@ deben resolverse antes de pasar a la fase de modelado:</p>
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="intro.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Análisis exploratorio de datos — Fuga y valor del cliente</p>
-      </div>
-    </a>
 </div>
                 </footer>
               
             </div>
             
             
-              
-                <dialog id="pst-secondary-sidebar-modal"></dialog>
-                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item"><div
-    id="pst-page-navigation-heading-2"
-    class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
-    <ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resumen">Resumen</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduccion">1. Introducción</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metodologia">2. Metodología</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#descripcion-del-problema-y-del-conjunto-de-datos">2.1 Descripción del problema y del conjunto de datos</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#descripcion-general">(1) Descripción general</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#etl-extract-transform-load">(2) ETL (Extract, Transform, Load)</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#eda-exhaustivo">(3) EDA exhaustivo</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#desarrollo-tecnico-del-eda-codigo-y-resultados-reproducibles">Desarrollo técnico del EDA (código y resultados reproducibles)</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuracion-del-entorno">1. Configuración del entorno</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#carga-de-los-datos">2. Carga de los datos</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vision-general-de-la-tabla-de-clientes">3. Visión general de la tabla de clientes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calidad-de-los-datos">4. Calidad de los datos</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#faltantes-aleatorios-o-estructurales">4.1 Faltantes: ¿aleatorios o estructurales?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#columnas-de-transacciones-redundantes-escaladas-o-revueltas">4.2 Columnas de transacciones: ¿redundantes, escaladas o revueltas?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rangos-acotados-y-valores-sospechosos">4.3 Rangos acotados y valores sospechosos</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-univariado">5. Análisis univariado</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-numericas">5.1 Variables numéricas</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-categoricas">5.2 Variables categóricas</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tenencia-y-adopcion-de-productos">5.3 Tenencia y adopción de productos</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cuantificacion-de-outliers-regla-iqr-1-5">5.4 Cuantificación de <em>outliers</em> (regla IQR 1,5×)</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relaciones-entre-variables-numericas">6. Relaciones entre variables numéricas</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spearman-vs-pearson-en-variables-sesgadas">6.1 Spearman vs Pearson en variables sesgadas</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pares-numericos-casi-redundantes-r-0-9">6.2 Pares numéricos casi redundantes (|r| &gt; 0,9)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#asociacion-entre-variables-categoricas-cramer-s-v">6.3 Asociación entre variables categóricas (Cramér’s V)</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objetivo-1-probabilidad-de-fuga-churn-probability">7. Objetivo 1 — Probabilidad de fuga (<code class="docutils literal notranslate"><span class="pre">churn_probability</span></code>)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#es-churn-una-funcion-de-active-products-posible-fuga-de-datos">7.1 ¿Es <code class="docutils literal notranslate"><span class="pre">churn</span></code> una función de <code class="docutils literal notranslate"><span class="pre">active_products</span></code>? (posible fuga de datos)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#churn-segun-variables-categoricas-tamano-de-efecto-eta2">7.2 <code class="docutils literal notranslate"><span class="pre">churn</span></code> según variables categóricas (tamaño de efecto eta²)</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objetivo-2-valor-del-cliente-customer-lifetime-value-clv-segment">8. Objetivo 2 — Valor del cliente (<code class="docutils literal notranslate"><span class="pre">customer_lifetime_value</span></code> / <code class="docutils literal notranslate"><span class="pre">clv_segment</span></code>)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#drivers-de-clv-y-clientes-de-valor-cero">8.1 Drivers de CLV y clientes de valor cero</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-las-transacciones-transactions-data-csv">9. Análisis de las transacciones (<code class="docutils literal notranslate"><span class="pre">transactions_data.csv</span></code>)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#agregacion-por-cliente-y-cruce-con-la-tabla-de-clientes">9.1 Agregación por cliente y cruce con la tabla de clientes</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calidad-de-la-tabla-de-transacciones">9.2 Calidad de la tabla de transacciones</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#que-columna-reportada-cuadra-con-las-transacciones-reales">9.3 ¿Qué columna reportada cuadra con las transacciones reales?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tabla-corregida-dataset-depurado-para-el-modelado">9.4 Tabla corregida — dataset depurado para el modelado</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resumen-ejecutivo-y-proximos-pasos">10. Resumen ejecutivo y próximos pasos</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resumen-de-correctitud">Resumen de correctitud</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hallazgos-principales">Hallazgos principales</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proximos-pasos-para-el-modelado">Próximos pasos para el modelado</a></li>
-</ul>
-</li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>

@@ -3,27 +3,21 @@
 **Universidad del Norte · Machine Learning · Entrega 1**
 Martínez Pulido, Valerie · Basto Martínez, Abrahan · Esguerra Fernández, Rubén
 
-📖 **Sitio publicado:** https://rubenesg.github.io/Machine_learning/
+📖 **Sitio publicado:** https://rubenesg.github.io/prueba2026/
 
 Análisis exploratorio y auditoría de calidad de datos sobre el conjunto público
 [COFINFAD](https://data.mendeley.com/datasets/mhb4zn3258/1) (48.723 clientes, 54 variables
 y 3.159.157 transacciones, 2023).
 
-## Contenido del repositorio
+## Contenido
 
 | Archivo | Descripción |
 |---|---|
 | `eda_bancario.ipynb` | Notebook ejecutado con todo el análisis (18 figuras, 12 tablas) |
-| `docs/` | Sitio web ya compilado (Jupyter Book). Es lo que publica GitHub Pages |
-| `intro.md`, `_toc.yml`, `_config.yml` | Fuentes del libro, por si se quiere recompilar |
-| `requirements.txt` | Dependencia para recompilar (`jupyter-book<2`) |
+| `docs/` | Sitio web ya compilado. Es lo que publica GitHub Pages |
+| `_toc.yml`, `_config.yml`, `_static/custom.css` | Fuentes del libro (página única, a todo el ancho) |
 
-## Cómo se publica
-
-GitHub Pages sirve la carpeta `docs/` de la rama `main`
-(**Settings → Pages → Source: Deploy from a branch → main → /docs**).
-
-## Recompilar el sitio (solo si se modifica el notebook)
+## Recompilar (solo si se modifica el notebook)
 
 ```bash
 pip install "jupyter-book<2"

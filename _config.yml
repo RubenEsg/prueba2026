@@ -14,7 +14,7 @@ only_build_toc_files: true
 
 # Enlace al repositorio (cambia <TU_USUARIO> y <TU_REPO>)
 repository:
-  url: https://github.com/RubenEsg/Machine_learning
+  url: https://github.com/RubenEsg/prueba2026
   branch: main
 
 html:
@@ -22,7 +22,15 @@ html:
   use_repository_button: true
   use_edit_page_button: false
 
-# Permite ecuaciones/mates si las agregas más adelante
+sphinx:
+  config:
+    html_css_files:
+      - custom.css
+    html_theme_options:
+      show_navbar_depth: 0
+      secondary_sidebar_items: []
+      navigation_with_keys: false
+
 parse:
   myst_enable_extensions:
     - dollarmath

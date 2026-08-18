@@ -1,0 +1,13 @@
+/* Una sola columna: sin barra de navegación izquierda ni índice derecho */
+.bd-sidebar-primary,
+.bd-sidebar-secondary,
+.bd-toc,
+#rtd-footer-container { display: none !important; }
+
+/* Contenido a todo el ancho, alineado a la izquierda */
+.bd-main .bd-content { max-width: 100% !important; }
+.bd-page-width,
+.bd-article-container,
+article.bd-article { max-width: 100% !important; }
+.bd-container, .bd-container__inner { max-width: 100% !important; }
+main.bd-main { padding-left: 1.5rem; }
